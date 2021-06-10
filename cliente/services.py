@@ -1,8 +1,11 @@
 import requests
 
 def generate_request(url, params={}):
-    response = requests.get(url, params=params)
-
+    # requests.post(url, data, headers, timeout)
+    try:
+        response = requests.get(url, params=params)
+    except:
+        response = "No hay respuesta"
     if response.status_code == 200:
         return response.json()
 
